@@ -1,0 +1,64 @@
+var clicks = 0;
+var mouseMultiplier = 1;
+var currentTime = 0;
+
+function mouseClick() {
+  clicks += mouseMultiplier;
+  document.getElementById('clicks').innerHTML = clicks;
+};
+
+function incrementTime() {
+  currentTime++;
+  document.getElementById('currentTime').innerHTML = currentTime;
+};
+
+function autoClick() {
+  clicks += clickers;
+  document.getElementById('clicks').innerHTML = clicks;
+}
+
+function upgradeClickPower() {
+  var upgradeClickPowerCost = Math.floor(6.7 * Math.pow(1.5, mouseMultiplier));
+  if (clicks >= upgradeClickPowerCost) {
+    mouseMultiplier++;
+    clicks -= upgradeClickPowerCost;
+    document.getElementById('clicks').innerHTML = clicks;
+    document.getElementById('clickPower').innerHTML = mouseMultiplier;
+    upgradeClickPowerCost = Math.floor(6.7 * Math.pow(1.5, mouseMultiplier));
+    document.getElementById('upgradeClickPowerCost').innerHTML = upgradeClickPowerCost;
+  }
+}
+
+var clickers = 0;
+
+function buyClicker() {
+  var clickerCost = Math.floor(100 * Math.pow(1.1, clickers));
+  if (clicks >= clickerCost) {
+    clickers += 1;
+    clicks -= clickerCost;
+    document.getElementById('clickers').innerHTML = clickers;
+    document.getElementById('clicks').innerHTML = clicks;
+    clickerCost = Math.floor(100 * Math.pow(1.1, clickers));
+    document.getElementById('clickerCost').innerHTML = clickerCost;
+  }
+};
+
+function reset() {
+  clicks = 0;
+  mouseMultiplier = 1;
+  currentTime = 0;
+  clickers = 0;
+  document.getElementById('clicks').innerHTML = 0;
+  document.getElementById('clickers').innerHTML = 0;
+  document.getElementById('currentTime').innerHTML = 0;
+  document.getElementById('clickerCost').innerHTML = 100;
+  document.getElementById('upgradeClickPowerCost').innerHTML = 10;
+  document.getElementById('clickPower').innerHTML = 1;
+}
+
+window.setInterval(function() {
+  autoClick();
+}, 1000);
+window.setInterval(function() {
+  incrementTime();
+}, 1000);

@@ -1,0 +1,24 @@
+<html>
+
+<head>
+  <h1>Mine</h1>
+  <link rel="stylesheet" type="text/css" href="interface.css" />
+</head>
+
+<body>
+  <button onclick="mouseClick(1)">Click</button>
+  <br /> Clicks: <span id="clicks">0</span>
+  <br /> <br />
+  <button onclick ="upgradeClickPower()">Upgrade click power</button>
+  <br /> Click power: <span id="clickPower">1</span>
+  <br /> Upgrade click power cost: <span id="upgradeClickPowerCost">10</span>
+  <br /> <br />
+  <button onclick="buyClicker()">Buy clicker</button>
+  <br /> Clickers: <span id="clickers">0</span>
+  <br /> Clicker cost: <span id="clickerCost">100</span>
+  <br /> <br />
+  <button onclick="reset()">RESET</button>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
